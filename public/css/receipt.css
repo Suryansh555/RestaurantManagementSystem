@@ -1,0 +1,57 @@
+#wrapper {
+    width: 280px;
+    margin: 0 auto;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+#resturant-name,
+#receipt-footer {
+    text-align: center;
+}
+.tb-sale-detail,
+.tb-sale-total {
+    width: 100%;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+.tb-sale-detail {
+    text-align: center;
+}
+.tb-sale-detail th {
+    border-bottom: 1px solid #000;
+}
+.tb-sale-total td {
+    padding: 5px 0;
+    padding-left: 1.5%;
+    border-bottom: 1px solid #000;
+}
+.tb-sale-total tr:first-child td:nth-child(3) {
+    border-left: 1px solid #999;
+}
+.tb-sale-total tr:first-child td:nth-child(4) {
+    text-align: right;
+    padding-left: 1.5%;
+}
+.tb-sale-total tr:not(:first-child) {
+    background-color: #ccc;
+}
+.tb-sale-total tr:not(:first-child) td:nth-child(2) {
+    text-align: right;
+    padding-right: 1.5%;
+}
+.btn {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+}
+.btn-print {
+    background-color: #ffa93c;
+}
+.btn-back {
+    background-color: #4fa950;
+}
