@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Restuarnt App - Receipt - SaleID : {{$sale->id}}</title>
+  <title>Restaurant App - Receipt - SaleID : {{$sale->id}}</title>
   <link type="text/css" rel="stylesheet" href="{{asset('/css/receipt.css')}}" media="all" >
   <link type="text/css" rel="stylesheet" href="{{asset('/css/no-print.css')}}" media="print" >
 </head>
 <body>
   <div id="wrapper">
     <div id="receipt-header">
-      <h3 id="resturant-name">Resturant App Devtamin</h3>
-      <p>Address: 341 N Vakanda Ave</p>
-      <p>Analpolis, MD 1234</p>
+      <h3 id="resturant-name">Resturant App</h3>
+      <p>Address: BMSIT College</p>
+      <p>Avalhalli</p>
       <p>Tel: 473-XXXX-XXXX</p>
       <p>Reference Receipt: <strong>{{$sale->id}}</strong></p>
     </div>
@@ -45,7 +45,7 @@
             <td>Total Quantity</td>
             <td>{{$saleDetails->count()}}</td>
             <td>Total</td>
-            <td>${{number_format($sale->total_price, 2)}}</td>
+            <td>₹{{number_format($sale->total_price, 2)}}</td>
           </tr>
           <tr>
             <td colspan="2">Payment Type</td>
@@ -53,11 +53,11 @@
           </tr>
           <tr>
             <td colspan="2">Paid Amount</td>
-            <td colspan="2">${{number_format($sale->total_recieved, 2)}}</td>
+            <td colspan="2">₹{{number_format($sale->total_recieved, 2)}}</td>
           </tr>
           <tr>
             <td colspan="2">Change</td>
-            <td colspan="2">${{number_format($sale->change, 2)}}</td>
+            <td colspan="2">₹{{number_format($sale->change, 2)}}</td>
           </tr>
         </tbody>
       </table>

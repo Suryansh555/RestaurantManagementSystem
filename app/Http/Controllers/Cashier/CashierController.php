@@ -49,7 +49,7 @@ class CashierController extends Controller
                     <br>
                     '.$menu->name.'
                     <br>
-                    $'.number_format($menu->price).'
+                    ₹'.number_format($menu->price).'
                 </a>
             </div>
             
@@ -135,7 +135,7 @@ class CashierController extends Controller
             <tr>
                 <td>'.$saleDetail->menu_id.'</td>
                 <td>'.$saleDetail->menu_name.'</td>
-                <td>'.$saleDetail->quantity.'</td>
+                <td>'.$saleDetail->quantity.' <button data-id="'.$saleDetail->id.'" class="btn btn-primary btn-sm btn-increase-quantity">+</button></td>
                 <td>'.$saleDetail->menu_price.'</td>
                 <td>'.($saleDetail->menu_price * $saleDetail->quantity).'</td>';
                 if($saleDetail->status == "noConfirm"){
@@ -150,7 +150,7 @@ class CashierController extends Controller
 
         $sale = Sale::find($sale_id);
         $html .= '<hr>';
-        $html .= '<h3>Total Amount: $'.number_format($sale->total_price).'</h3>';
+        $html .= '<h3>Total Amount: ₹'.number_format($sale->total_price).'</h3>';
 
         if($showBtnPayment){
             $html .= '<button data-id="'.$sale_id.'" data-totalAmount="'.$sale->total_price.'" class="btn btn-success btn-block btn-payment" data-toggle="modal" data-target="#exampleModal">Payment</button>';
@@ -161,6 +161,10 @@ class CashierController extends Controller
 
         return $html;
     }
+
+    ##public function increaseQuantity(Request $request){
+     ##   $saleDetail_id = request()
+    ## }
 
     public function confirmOrderStatus(Request $request){
         $sale_id = $request->sale_id;

@@ -40,7 +40,7 @@
         <h3 class="changeAmount"></h3>
         <div class="input-group mb-3">
            <div class="input-group-prepend">
-            <span class="input-group-text">$</span>
+            <span class="input-group-text">₹</span>
            </div> 
            <input type="number" id="recieved-amount" class="form-control">
         </div>
@@ -158,6 +158,24 @@ $(document).ready(function(){
 
   });
 
+  // increase quantity
+
+  $("#order-detail").on("click", ".btn-increase-quantity",function(){
+    var saleDetailID = $(this).data("id");
+    $.ajax({
+      type: "POST",
+      data: {
+        "_token" : $('meta[name="csrf-token"]').attr('content'),
+        "saleDetail_id": saleDetailID
+      },
+      url: "/cashier/increase-quantity",
+      success: function(data){
+        $("#order-detail").html(data);
+      }
+    })
+
+  });
+
   // when a user click on the payment button
   $("#order-detail").on("click", ".btn-payment", function(){
     var totalAmout = $(this).attr('data-totalAmount');
@@ -172,7 +190,7 @@ $(document).ready(function(){
     var totalAmount = $(".btn-payment").attr('data-totalAmount');
     var recievedAmount = $(this).val();
     var changeAmount = recievedAmount - totalAmount;
-    $(".changeAmount").html("Total Change: $" + changeAmount);
+    $(".changeAmount").html("Total Change: ₹" + changeAmount);
 
     //check if cashier enter the right amount, then enable or disable save payment button
 
